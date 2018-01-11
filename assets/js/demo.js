@@ -1,7 +1,7 @@
 type = ['', 'info', 'success', 'warning', 'danger'];
 
 
-var moistureRefreshInterval = setInterval(updateMoisture, 5000);
+var moistureRefreshInterval = setInterval(updateMoisture, 20000);
 function updateMoisture() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
