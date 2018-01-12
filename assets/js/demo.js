@@ -12,7 +12,8 @@ function updateMoisture() {
         if (this.responseText > 50) {
             document.getElementById("moistureWarningIcon").innerHTML = "thumb_up";
             document.getElementById("moistureWarningIcon").style.color = "#55ae59";   
-            document.getElementById("moistureWarningText").innerHTML = "Optimal Moisture Levels";         
+            document.getElementById("moistureWarningText").innerHTML = "Optimal Moisture Levels"; 
+            document.getElementById("moistureWarningText").style.color = "#55ae59"; 
         }
         if (this.responseText < 20 ) {
             document.getElementById("moistureWarningIcon").innerHTML = "warning";
@@ -22,8 +23,9 @@ function updateMoisture() {
         }
         if (this.responseText < 50 && this.responseText > 20) {
             document.getElementById("moistureWarningIcon").innerHTML = "warning";
-            document.getElementById("moistureWarningIcon").style.color ="#f44336"
-            document.getElementById("moistureWarningText").innerHTML = "Moisture Levels Low";            
+            document.getElementById("moistureWarningIcon").style.color ="yellow"
+            document.getElementById("moistureWarningText").innerHTML = "Moisture Levels Low";
+            document.getElementById("moistureWarningText").style.color ="yellow";
         }
     };
     xmlhttp.open("GET", "https://api.thingspeak.com/channels/389180/fields/1/last.txt", true);
