@@ -9,11 +9,17 @@ function updateMoisture() {
             document.getElementById("moistureText").innerHTML = this.responseText + " <small>%</small>";
             document.getElementById("moistureLevelTable").innerHTML = this.responseText + "%";
         }
-        if (this.responseText > 50) {
+        if (this.responseText > 50 && this.responseText < 80) {
             document.getElementById("moistureWarningIcon").innerHTML = "thumb_up";
             document.getElementById("moistureWarningIcon").style.color = "#55ae59";   
             document.getElementById("moistureWarningText").innerHTML = "Optimal Moisture Levels"; 
             document.getElementById("moistureWarningText").style.color = "#55ae59"; 
+        }
+         if (this.responseText > 80) {
+            document.getElementById("moistureWarningIcon").innerHTML = "warning";
+            document.getElementById("moistureWarningIcon").style.color = "#f44336";   
+            document.getElementById("moistureWarningText").innerHTML = "Over Saturation of Water. Risk Of Leaching"; 
+            document.getElementById("moistureWarningText").style.color = "#f44336"; 
         }
         if (this.responseText < 20 ) {
             document.getElementById("moistureWarningIcon").innerHTML = "warning";
