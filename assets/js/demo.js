@@ -14,6 +14,18 @@ function updateMoisture() {
             document.getElementById("moistureWarningIcon").style.color = "#55ae59";   
             document.getElementById("moistureWarningText").innerHTML = "Optimal Moisture Levels"; 
             document.getElementById("moistureWarningText").style.color = "#55ae59"; 
+             $.notify({
+            icon: "notifications",
+            message: "Warning</b> - Sensor 1 Moisture Values Critical."
+
+        }, {
+            type: type[color],
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
         }
          if (this.responseText > 80) {
             document.getElementById("moistureWarningIcon").innerHTML = "warning";
