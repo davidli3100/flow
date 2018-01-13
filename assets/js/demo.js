@@ -20,6 +20,7 @@ function updateMoisture() {
             document.getElementById("moistureWarningIcon").style.color = "#f44336";   
             document.getElementById("moistureWarningText").innerHTML = "Over Saturation of Water. Risk Of Leaching"; 
             document.getElementById("moistureWarningText").style.color = "#f44336"; 
+
         }
         if (this.responseText < 20 ) {
             document.getElementById("moistureWarningIcon").innerHTML = "warning";
@@ -36,6 +37,7 @@ function updateMoisture() {
     };
     xmlhttp.open("GET", "https://api.thingspeak.com/channels/389180/fields/1/last.txt", true);
     xmlhttp.send();
+    demo.showInfo('bottom','left');
 }
 
 function abortMoistureUpdate() {
@@ -307,7 +309,71 @@ demo = {
                 align: align
             }
         });
-    }
+    },
+    
+    showDanger: function(from, align) {
+
+        $.notify({
+            icon: "notifications",
+            message: "<b>Warning</b> - Sensor 1 Moisture Values Critical."
+
+        }, {
+            type: "danger",
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+    },
+    
+        showWarning: function(from, align) {
+
+        $.notify({
+            icon: "notifications",
+            message: "<b>Warning</b> - Sensor 1 Moisture Values Low."
+
+        }, {
+            type: "warning",
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+    },
+    
+       showSuccess: function(from, align) {
+
+        $.notify({
+            icon: "notifications",
+            message: "Moisture Levels Normal"
+
+        }, {
+            type: "success",
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+    },
+    
+           showInfo: function(from, align) {
+
+        $.notify({
+            icon: "notifications",
+            message: "Updating Moisture Values"
+
+        }, {
+            type: "info",
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+    },
 
 
 
